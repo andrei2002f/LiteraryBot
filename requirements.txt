@@ -1,0 +1,7 @@
+elasticsearch>=8.13.0
+sentence-transformers>=2.2.2
+tqdm
+python-dotenv
+ollama
+beautifulsoup4
+flask

@@ -1,0 +1,38 @@
+<head>
+  <meta charset="UTF-8">
+  <title>LiteraryBot - Chatbot Literar</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <script src="../static/script.js"></script>
+  <link rel="icon" href="../static/icon.jpg" type="image/x-icon">
+</head>
+<body>
+  <h1>LiteraryBot - Chatbot pentru literatura românească</h1>
+
+  <form method="POST" onsubmit="return validateInput(event)">
+    <input type="text" name="question" id="user-input" placeholder="Pune o întrebare...">
+    
+    <select name="model" id="model-select">
+      <option value="gemma3:12b">Gemma 3 12B</option>
+      <option value="qwen2.5:72b">Qwen 2.5 72B</option>
+      <option value="llama3.3:latest">LLaMA 3.3 Latest</option>
+      <option value="llama4:16x17b">LLaMA 4 16x17B</option>
+    </select>
+
+    <button type="submit" name="ask" value="1">Trimite</button>
+    <button type="submit" name="clear" value="1" class="clear-btn">Șterge conversația</button>
+  </form>
+
+
+  <div class="chat">
+    {% for entry in history %}
+      <div class="message user">
+        <div class="bubble">{{ entry.question }}</div>
+      </div>
+      <div class="message bot">
+        <div class="bubble">{{ entry.answer }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>
